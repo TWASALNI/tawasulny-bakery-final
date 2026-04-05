@@ -1,0 +1,1 @@
+SELECT terms_accepted FROM drivers WHERE id = :param0::bigint LIMIT 1;

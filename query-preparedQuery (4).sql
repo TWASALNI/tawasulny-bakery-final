@@ -1,0 +1,1 @@
+UPDATE orders SET is_archived = TRUE WHERE customer_phone = :param0;

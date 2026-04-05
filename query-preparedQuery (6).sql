@@ -1,0 +1,1 @@
+UPDATE drivers SET is_banned = TRUE WHERE id = :param0::bigint RETURNING id;

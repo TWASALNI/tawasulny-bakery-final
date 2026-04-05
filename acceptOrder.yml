@@ -1,0 +1,61 @@
+id: '17752624139910.7150534714263546'
+kind: workflow
+name: acceptOrder
+nameConfigured: true
+steps:
+  - id: '17753690720730.1886202626961615'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: datasourceId
+        value: Transport System DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.driver_id)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.id)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: false
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.acceptOrder.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.acceptOrder.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: false
+  errorToast: Action "{{actions.acceptOrder.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true

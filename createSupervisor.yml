@@ -1,0 +1,64 @@
+id: '17752802513690.6194583996710772'
+kind: workflow
+name: createSupervisor
+nameConfigured: true
+steps:
+  - id: '17753690726030.2835511866506524'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: datasourceId
+        value: Transport System DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.full_name)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.phone)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.pin)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.permissions)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.role)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: false
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.createSupervisor.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.createSupervisor.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: false
+  errorToast: Action "{{actions.createSupervisor.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true

@@ -1,0 +1,1 @@
+UPDATE supervisors SET pin = md5({{params.pin}}) WHERE id = {{params.id}}::bigint RETURNING id;

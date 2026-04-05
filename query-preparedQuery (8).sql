@@ -1,0 +1,1 @@
+UPDATE supervisors SET pin = md5(:param0) WHERE id = :param1::bigint RETURNING id;

@@ -1,0 +1,73 @@
+id: '17752624139440.058839185531926796'
+kind: workflow
+name: createOrder
+nameConfigured: true
+steps:
+  - id: '17753690719290.9972385833269157'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: datasourceId
+        value: Transport System DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value:
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.customer_name)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.customer_phone)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.city)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.neighborhood)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.home_location)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.work_location)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.persons_count)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.passenger_type)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.trip_type)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.departure_time)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.return_time)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.work_days)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.notes)
+          - __UI_BAKERY__FORMAT_IF_DATE__(params.customer_identifier)
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: false
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.createOrder.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.createOrder.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: false
+  errorToast: Action "{{actions.createOrder.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true

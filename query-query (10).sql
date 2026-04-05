@@ -1,0 +1,1 @@
+SELECT terms_accepted FROM drivers WHERE id = {{params.driver_id}}::bigint LIMIT 1;

@@ -1,0 +1,59 @@
+id: '17752624139570.6714291616112164'
+kind: workflow
+name: loadAllDrivers
+nameConfigured: true
+steps:
+  - id: '17753690719600.08112281114425113'
+    type: customSQLQuery
+    name: query
+    params:
+      - type: datasourceId
+        value: Transport System DB
+        valueType: custom
+        mustSelectFirst: true
+      - type: query
+        value: ./query-query.sql
+        valueType: interpolatedValue
+        interpolationType: string
+      - type: preparedQuery
+        value: ./query-preparedQuery.sql
+        valueType: interpolatedValue
+      - type: preparedQueryParams
+        value: []
+        valueType: custom
+      - type: customDatabaseName
+        value: ''
+        valueType: interpolatedValue
+      - type: stepVersion
+        value: 3
+        valueType: custom
+      - type: successMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: failureMapper
+        value: ''
+        valueType: interpolatedValue
+        interpolationType: code
+      - type: mapperEnabled
+        value: false
+        valueType: custom
+    level: 0
+    fallthroughError: false
+    isChanged: false
+mode: manual
+modeConfigured: true
+config:
+  shouldConfirm: false
+  confirmMessage: Are you sure you'd like to proceed with "{{actions.loadAllDrivers.name}}"?
+  showSuccessToast: false
+  successToast: Action "{{actions.loadAllDrivers.name}}" successfully executed
+  successToastDuration: '3000'
+  successToastHideByClick: false
+  showErrorToast: false
+  errorToast: Action "{{actions.loadAllDrivers.name}}" has failed
+  errorToastDuration: '3000'
+  errorToastHideByClick: false
+  delay: '0'
+  runWhenFirstReferenced: true
+  preserveStateOnPageChange: true

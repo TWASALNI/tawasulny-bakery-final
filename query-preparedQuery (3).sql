@@ -1,0 +1,1 @@
+UPDATE drivers SET driver_status = 'approved', is_available = TRUE WHERE id = :param0::bigint RETURNING id;
