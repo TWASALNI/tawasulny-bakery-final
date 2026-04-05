@@ -1,0 +1,31 @@
+metadata:
+  favicon: ''
+  title: توصلني
+  description: ''
+  breakpoints: []
+  rendererCachingEnabled: true
+  skipDepsComparisonInCompilerCache: false
+  vibeAppPhase: impl
+  vibeAppAutoApplyMigrations: true
+  vibeAppConnectedDatasources:
+    - توصلني
+    - Transport System DB
+    - TWASALNI.COM
+    - TWASALNI.
+  vibeAppPrimaryHostedDatasourceId: توصلني
+  vibeAppToolPermissions:
+    takeScreenshot:
+      decision: alwaysApproved
+      updatedAt: '2026-04-04T06:36:58.082Z'
+    callInspectActions:
+      decision: alwaysApproved
+      updatedAt: '2026-04-04T06:36:58.099Z'
+appSettings:
+  properties:
+    defaultData: '{}'
+  actions: {}
+  gridVersion: 2
+  density: compact
+  hideRenderCachingSettings: false
+internalType: vibe_project
+id: hiwKBVJOzT
